@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
-const UserCard = ({ pic }) => {
-  const [name, setName] = useState("Nick");
+const UserCard = ({ pic, name }) => {
   return (
     <div>
       <img src={pic} alt="User avatar" />

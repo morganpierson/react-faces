@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { render } from "react-dom";
 import UserCard from "./UserCard";
+import AppContext from "./AppContext";
 
 const API_KEY = "f7322ae2ae53159d961a474b67516e";
 
 const App = () => {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch("https://uifaces.co/api?limit=10&emotion[]=happiness", {
+    fetch("https://uifaces.co/api?limit=6&emotion[]=happiness", {
       method: "GET",
       headers: {
         "X-API-KEY": API_KEY,
@@ -16,18 +18,24 @@ const App = () => {
       }
     })
       .then(res => res.json())
-      .then(response => console.log(response));
-  });
-
+      .then(response => {
+        console.log(response);
+        setData(response);
+        setLoading(false);
+      });
+  }, [loading]);
+  if (loading) {
+    return <div>Loading...</div>;
+  }
   return (
-    <div>
-      <UserCard name={"Morgan"} pic={"https://www.placecage.com/c/200/300"} />
-      <UserCard name={"Nick"} pic={"https://www.placecage.com/c/200/300"} />
-      <UserCard
-        name={"Crazy man"}
-        pic={"https://www.placecage.com/c/200/300"}
-      />
-    </div>
+    <AppContext.Provider value={data}>
+      <div>
+        <pre>
+          <code>{JSON.stringify(data[0], null, 4)}</code>
+        </pre>
+        <UserCard name={data[0].name} pic={data[0].photo} />
+      </div>
+    </AppContext.Provider>
   );
 };
 
