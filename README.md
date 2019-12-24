@@ -9,4 +9,4 @@ npm install
 ```bash
 npm run dev
 ```
-Then, navigate to [Localhost](http://localhost:1234)
+Then, navigate to [localhost:1234](http://localhost:1234)
