@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { render } from "react-dom";
 import UserCard from "./UserCard";
+import AboutUs from "./AboutUs";
 import AppContext from "./AppContext";
 
 const API_KEY = "f7322ae2ae53159d961a474b67516e";
@@ -37,22 +38,7 @@ const App = () => {
             ))}
           </div>
         </div>
-        <div className="about-us">
-          <h3 className="about">About Us</h3>
-          <h3 className="about-mobile">Our Story</h3>
-          <p className="biz-info">
-            Today, our company is a family-owned business operating 21 store
-            locations across Indiana. Each store offers a range of eye health
-            services that help patients correct and protect their vision. In
-            addition, our stores carry a large selection of designer frames and
-            fashion-forward for Women, Men and Kids.
-          </p>
-          <p className="biz-info">
-            More than 75 years later, we've helped Indiana residents maintain
-            quality vision and find their perfect pair of eyewear still remains
-            today throughout all our stores.
-          </p>
-        </div>
+        <AboutUs />
       </div>
     </AppContext.Provider>
   );
