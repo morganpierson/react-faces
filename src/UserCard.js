@@ -2,15 +2,9 @@ import React, { useState } from "react";
 
 const UserCard = ({ pic, name }) => {
   return (
-    <div>
-      <img src={pic} alt="User avatar" />
-      <input
-        type="text"
-        placeholder="name"
-        value={name}
-        onChange={e => setName(e.target.value)}
-      />
-      {name}
+    <div className="card-container">
+      <img src={pic} alt="User avatar" className="avatar-img" />
+      <p className="avatar-name">{name}</p>
     </div>
   );
 };
