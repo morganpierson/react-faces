@@ -1,4 +1,4 @@
-# react-faces
+# React Faces
 A basic React application using the UIFaces API with Context and Hooks.
 
 ## How to run the project
