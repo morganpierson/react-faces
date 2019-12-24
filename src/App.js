@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { render } from "react-dom";
 import UserCard from "./UserCard";
 import AppContext from "./AppContext";
-import business from "./info.json";
 
 const API_KEY = "f7322ae2ae53159d961a474b67516e";
 
@@ -20,7 +19,6 @@ const App = () => {
     })
       .then(res => res.json())
       .then(response => {
-        console.log(response);
         setData(response);
         setLoading(false);
       });
